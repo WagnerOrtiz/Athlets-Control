@@ -1,0 +1,42 @@
+{
+  "13eec337-ca22-4e8b-97d3-9f654e36ba66": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1588/1.0.1588.2938/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://datasidetecnologia.sharepoint.com/sites/EquipedoWagnao2": {
+        "dataSources": {
+          "[Flamengo] - Atletas": {
+            "tableName": "5bb876bc-bc92-4144-9d1b-0e38d711e32b"
+          },
+          "[Flamengo] - Historico_Medico": {
+            "tableName": "cd869d83-5323-4009-9a99-e6529fab3a7b"
+          },
+          "[Flamengo] - Modalidades": {
+            "tableName": "8cc75cac-9c4d-49ab-988f-1b87bdab0659"
+          },
+          "[Flamengo] - Users": {
+            "tableName": "d3bbd8d9-678f-439b-a566-3560223afe56"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "[Flamengo] - Users",
+      "[Flamengo] - Modalidades",
+      "[Flamengo] - Atletas",
+      "[Flamengo] - Historico_Medico"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "13eec337-ca22-4e8b-97d3-9f654e36ba66"
+  }
+}

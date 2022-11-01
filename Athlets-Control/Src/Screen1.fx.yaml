@@ -1,0 +1,59 @@
+Screen1 As screen:
+    Fill: =WhiteSmoke
+    Width: =
+
+    "Gallery3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Items: |-
+            =Table({Icon:Icon.Home, Option:"Atletas"},{Icon:Icon.Add, Option:"Inserir"},{Icon:Icon.Edit, Option:"Back Office"})
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(160, Self.Height - 60)
+        Y: =40
+        ZIndex: =2
+
+        Subtitle2 As label:
+            Height: =26
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Option
+            VerticalAlign: =VerticalAlign.Top
+            Width: =318
+            X: =108
+            Y: =67
+            ZIndex: =3
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(127, 178, 57, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2 As rectangle:
+            Fill: =RGBA(54, 176, 75, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Icon3 As icon.Add:
+            Icon: =ThisItem.Icon
+            OnSelect: =Select(Parent)
+            X: =18
+            Y: =48
+            ZIndex: =6
+

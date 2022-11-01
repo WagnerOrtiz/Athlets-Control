@@ -1,0 +1,231 @@
+GaleriaAtletas As screen:
+    Fill: =RGBA(33, 30, 30, 1)
+
+    Label1 As label:
+        Color: =RGBA(0, 0, 0, 0)
+        Size: =10
+        Text: |-
+            ="Usuário: "& LookUp('[Flamengo] - Users', Email = EmailInput.Text, Usuario)
+        Width: =225
+        X: =60
+        Y: =1096
+        ZIndex: =1
+
+    "GaleriaGeralAtletas As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =826
+        Items: =SortByColumns(Filter('[Flamengo] - Atletas', StartsWith(NomeCompleto, TextSearchBox1.Text) || StartsWith(Modalidade, TextSearchBox1.Text) || StartsWith(Status, TextSearchBox1.Text)), "NomeCompleto", If(SortDescending1, Descending, Ascending))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =153
+        Y: =270
+        ZIndex: =11
+
+        Image3 As image:
+            Height: =105
+            Image: =If(ThisItem.Imagem= Blank(), SampleImage, ThisItem.Imagem)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =255
+            RadiusBottomRight: =255
+            RadiusTopLeft: =255
+            RadiusTopRight: =255
+            Width: =105
+            X: =46
+            Y: =28
+            ZIndex: =1
+
+        Title3 As label:
+            Color: =WhiteSmoke
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.NomeCompleto
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image3.Width - 104
+            X: =Image3.X + Image3.Width + 24
+            Y: =28
+            ZIndex: =2
+
+        Subtitle3 As label:
+            Color: =White
+            Height: =32
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Modalidade
+            VerticalAlign: =VerticalAlign.Top
+            Width: =347
+            X: =Title3.X
+            Y: =64
+            ZIndex: =3
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(210, 42, 35, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent); Navigate(DetalhesAtleta)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =547
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator4 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle3_1 As label:
+            Color: =White
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Status
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =174
+            Y: =100
+            ZIndex: =6
+
+    HeaderGaleriaAtletas As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =13
+
+        RectQuickActionBar1 As rectangle:
+            Fill: =RGBA(210, 35, 42, 1)
+            Height: =150
+            Width: =Parent.Width
+            ZIndex: =2
+
+        LblAppName1 As label:
+            Color: =RGBA(33, 30, 30, 1)
+            Fill: =RGBA(58, 58, 58, 0)
+            FontWeight: =FontWeight.Bold
+            Height: =150
+            Size: =28
+            Text: ="ATLETAS"
+            Width: =261
+            Wrap: =false
+            X: =223
+            ZIndex: =3
+
+        Image1 As image:
+            Height: =135
+            Image: =simbolo
+            Width: =135
+            X: =34
+            Y: =7
+            ZIndex: =10
+
+    Icon2 As icon.Add:
+        Color: =RGBA(0, 0, 0, 1)
+        Icon: =Icon.Hamburger
+        X: =539
+        Y: =42
+        ZIndex: =14
+
+    SearchBar_ As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =14
+
+        TextSearchBox1 As text:
+            Align: =Left
+            BorderColor: =RGBA(241, 244, 249, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =""
+            DelayOutput: =true
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =68
+            HintText: ="Search items"
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            PaddingLeft: =80
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =7
+            RadiusTopLeft: =0
+            RadiusTopRight: =7
+            Size: =21
+            Width: =608
+            X: =32
+            Y: =182
+            ZIndex: =7
+
+        SearchIcon1 As icon.Search:
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =75
+            Icon: =Icon.Search
+            PaddingBottom: =14
+            PaddingLeft: =14
+            PaddingRight: =14
+            PaddingTop: =14
+            Tooltip: ="Search"
+            Width: =80
+            X: =32
+            Y: =174
+            ZIndex: =8
+
+        Rectangle11 As rectangle:
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =1
+            Width: =640
+            Y: =250
+            ZIndex: =9
+
+        IconSortUpDown1_1 As icon.ArrowsUpDown:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =88
+            Icon: =Icon.Sort
+            OnSelect: |-
+                =UpdateContext({SortDescending1: !SortDescending1})
+            PaddingBottom: =26
+            PaddingLeft: =26
+            PaddingRight: =26
+            PaddingTop: =26
+            TabIndex: =0
+            Tooltip: =If(SortDescending1, "Sort list in reverse alphabetical order", "Sort list in alphabetical order")
+            Width: =88
+            X: =496
+            Y: =170
+            ZIndex: =12
+
+        IconSortUpDown1 As icon.ArrowsUpDown:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(128, 128, 128, 1)
+            Height: =90
+            Icon: =Icon.Reload
+            OnSelect: =Refresh('[Flamengo] - Atletas')
+            PaddingBottom: =26
+            PaddingLeft: =26
+            PaddingRight: =26
+            PaddingTop: =26
+            TabIndex: =0
+            Tooltip: =If(SortDescending1, "Sort list in reverse alphabetical order", "Sort list in alphabetical order")
+            Width: =92
+            X: =547
+            Y: =170
+            ZIndex: =13
+

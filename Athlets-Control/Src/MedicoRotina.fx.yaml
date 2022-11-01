@@ -1,0 +1,720 @@
+MedicoRotina As screen:
+    Fill: =RGBA(33, 30, 30, 1)
+    OnVisible: =
+
+    Button1_1 As button:
+        Color: =WhiteSmoke
+        Fill: =RGBA(210,42,35,1)
+        Height: =44
+        HoverBorderColor: =RGBA(210,42,35,1)
+        HoverColor: =White
+        HoverFill: =RGBA(210,42,25,1)
+        OnSelect: |
+            =If(
+                PasswordInput.Text = LookUp('[Flamengo] - Users', Email = EmailInput.Text, Senha), 
+                Navigate(GaleriaAtletas, ScreenTransition.Cover),
+                Notify("Usuário ou senha inválido",NotificationType.Warning)
+            )
+        PressedColor: =White
+        PressedFill: =RGBA(210,42,25,1)
+        Size: =18
+        Text: ="Enviar"
+        Width: =114
+        X: =498
+        Y: =977
+        ZIndex: =21
+
+    AbaAfastamento As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Fill: =Black
+        FontWeight: = Normal
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(MedicoAfastar)
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Afastamento"
+        Width: =325
+        X: =315
+        Y: =285
+        ZIndex: =22
+
+    AbaRotina As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =White
+        Fill: =RGBA(0,0,0,0)
+        FontWeight: =Semibold
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =5
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Rotina"
+        Width: =321
+        X: =1
+        Y: =285
+        ZIndex: =23
+
+    Header_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =28
+
+        RectQuickActionBar1_2 As rectangle:
+            Fill: =RGBA(210, 35, 42, 1)
+            Height: =286
+            Width: =640
+            ZIndex: =24
+
+        DetailForm1_10 As formViewer:
+            DataSource: ='[Flamengo] - Atletas'
+            Height: =246
+            Item: =GaleriaGeralAtletas.Selected
+            Width: =640
+            Y: =12
+            ZIndex: =25
+
+            NomeCompleto_DataCard1_10 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="NomeCompleto"
+                Default: =ThisItem.NomeCompleto
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo('[Flamengo] - Atletas',DataSourceInfo.DisplayName,"NomeCompleto")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =0
+                Required: =false
+                Width: =640
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardValue2_10 As label:
+                    Color: =White
+                    DisplayMode: =Parent.DisplayMode
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =Parent.Default
+                    Width: =319
+                    X: =311
+                    Y: =26
+                    ZIndex: =2
+
+                DataCardKey3_20 As label:
+                    Color: |
+                        =RGBA(33, 30, 30, 1)
+                    FontWeight: =FontWeight.Bold
+                    Size: =22
+                    Text: |-
+                        ="Nome: "
+                    Width: =165
+                    Wrap: =false
+                    X: =190
+                    Y: =26
+                    ZIndex: =3
+
+            Modalidade_DataCard1_10 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Modalidade"
+                Default: =ThisItem.Modalidade
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo('[Flamengo] - Atletas',DataSourceInfo.DisplayName,"Modalidade")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =42
+                Required: =false
+                Width: =640
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey3_21 As label:
+                    Color: |
+                        =RGBA(33, 30, 30, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =45
+                    Size: =22
+                    Text: |-
+                        =Parent.DisplayName&":"
+                    Width: =191
+                    Wrap: =false
+                    X: =187
+                    Y: =12
+                    ZIndex: =1
+
+                DataCardValue3_10 As label:
+                    Color: =White
+                    DisplayMode: =Parent.DisplayMode
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =Parent.Default
+                    Width: =172
+                    X: =384
+                    Y: =17
+                    ZIndex: =2
+
+            Status_DataCard1_10 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Status"
+                Default: =ThisItem.Status
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo('[Flamengo] - Atletas',DataSourceInfo.DisplayName,"Status")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =53
+                Required: =false
+                Width: =640
+                X: =0
+                Y: =2
+                ZIndex: =1
+
+                DataCardKey4_10 As label:
+                    Color: =RGBA(33, 30, 30, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =45
+                    Size: =22
+                    Text: |-
+                        =Parent.DisplayName&":"
+                    Width: =127
+                    Wrap: =false
+                    X: =187
+                    Y: =8
+                    ZIndex: =1
+
+                DataCardValue4_10 As label:
+                    Color: =White
+                    DisplayMode: =Parent.DisplayMode
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =Parent.Default
+                    Width: =153
+                    X: =321
+                    Y: =13
+                    ZIndex: =2
+
+            DataNascimento_DataCard1_10 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="DataNascimento"
+                Default: =ThisItem.DataNascimento
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo('[Flamengo] - Atletas',DataSourceInfo.DisplayName,"DataNascimento")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =58
+                Required: =false
+                Width: =640
+                X: =0
+                Y: =3
+                ZIndex: =1
+
+                DataCardKey1_10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(33, 30, 30, 1)
+                    FontWeight: =FontWeight.Bold
+                    Size: =21
+                    Text: |-
+                        ="Idade: "
+                    Width: =107
+                    Wrap: =false
+                    X: =188
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue1_10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =21
+                    Text: =DateDiff(ThisItem.DataNascimento, Today(), Years) 
+                    Width: =128
+                    X: =319
+                    Y: =16
+                    ZIndex: =2
+
+        IconBackarrow1_12 As icon.ChevronLeft:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(33, 30, 30, 1)
+            FocusedBorderColor: =
+            FocusedBorderThickness: =0
+            Height: =84
+            Icon: =Icon.ChevronLeft
+            OnSelect: =Back()
+            PaddingBottom: =24
+            PaddingLeft: =24
+            PaddingRight: =24
+            PaddingTop: =24
+            TabIndex: =0
+            Tooltip: ="Back to list"
+            Width: =88
+            X: =65
+            Y: =161
+            ZIndex: =26
+
+        Photo3_10 As image:
+            Height: =95
+            Image: =GaleriaGeralAtletas.Selected.Imagem
+            RadiusBottomLeft: =255
+            RadiusBottomRight: =255
+            RadiusTopLeft: =255
+            RadiusTopRight: =255
+            X: =65
+            Y: =56
+            ZIndex: =27
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =-245
+        ZIndex: =33
+
+        DataCardKey6_1 As label:
+            AutoHeight: =true
+            Color: =RGBA(210,42,35,1)
+            FontWeight: =FontWeight.Semibold
+            Height: =48
+            Size: =21
+            Text: |-
+                ="Tipo Avaliação:"
+            Width: =Parent.Width - 60
+            Wrap: =false
+            X: =26
+            Y: =432
+            ZIndex: =11
+
+        DataCardKey6_2 As label:
+            AutoHeight: =true
+            Color: =RGBA(210,42,35,1)
+            FontWeight: =FontWeight.Semibold
+            Height: =48
+            Size: =21
+            Text: |-
+                ="Observações:"
+            Width: =Parent.Width - 60
+            Wrap: =false
+            X: =25
+            Y: =795
+            ZIndex: =12
+
+        DataCardValue6_2 As text:
+            BorderColor: =RGBA(210,42,35,1)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =140
+            HintText: =""
+            HoverBorderColor: =
+            HoverColor: |-
+                =
+                White
+            HoverFill: =RGBA(0, 0, 0, 0)
+            PressedColor: =White
+            Size: =21
+            Width: =334
+            X: =280
+            Y: =810
+            ZIndex: =13
+
+        Dropdown1 As dropdown:
+            AllowEmptySelection: =true    
+            BorderColor: =RGBA(210,42,35,1)
+            ChevronBackground: =RGBA(210,42,35,1)
+            ChevronFill: =White
+            ChevronHoverBackground: =RGBA(210,42,35,1)
+            ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(33, 30, 30 , 1)
+            Height: =70
+            HoverColor: =White
+            HoverFill: =RGBA(33, 30, 20 , 1)
+            Items: =["Rotina", "Endócrina", "Cardíaca", "Neurológica", "Vascular", "Ortopédica"]
+            PressedColor: =White
+            PressedFill: =Self.ChevronFill
+            SelectionFill: =RGBA(0, 0, 0, 0)
+            Size: =21
+            Width: =336
+            X: =280
+            Y: =420
+            ZIndex: =14
+
+        DataCardKey6_3 As label:
+            Color: =RGBA(210,42,35,1)
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            Size: =21
+            Text: |-
+                ="Exames:"
+            Width: =212
+            Wrap: =false
+            X: =28
+            Y: =527
+            ZIndex: =15
+
+        DataCardKey6_4 As label:
+            AutoHeight: =true
+            Color: =RGBA(210,42,35,1)
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            Size: =21
+            Text: |-
+                ="Status:"
+            Width: =228
+            Wrap: =false
+            X: =26
+            Y: =618
+            ZIndex: =16
+
+        ComboBox1 As combobox:
+            BorderColor: =RGBA(210,42,35,1)
+            ChevronBackground: =RGBA(210,42,35,1)
+            ChevronFill: =White
+            ChevronHoverBackground: =RGBA(210,42,35,1)
+            ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+            Color: =White
+            DisplayFields: =["Value"]
+            Fill: =RGBA(33, 30, 30 , 1)
+            Height: =70
+            HoverColor: =White
+            HoverFill: =RGBA(33, 30, 20 , 1)
+            InputTextPlaceholder: =
+            IsSearchable: =false
+            Items: =["Exame 1","Exame 2","Exame 3", "Exame 4"]
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            Size: =21
+            Width: =336
+            X: =278
+            Y: =515
+            ZIndex: =17
+
+        Dropdown1_1 As dropdown:
+            AllowEmptySelection: =true    
+            BorderColor: =RGBA(210,42,35,1)
+            ChevronBackground: =RGBA(210,42,35,1)
+            ChevronFill: =White
+            ChevronHoverBackground: =RGBA(210,42,35,1)
+            ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(33, 30, 30 , 1)
+            Height: =70
+            HoverColor: =White
+            HoverFill: =RGBA(33, 30, 20 , 1)
+            Items: =["Ativo", "Afastado", "Desligado"]
+            PressedColor: =White
+            PressedFill: =Self.ChevronFill
+            SelectionFill: =RGBA(0, 0, 0, 0)
+            Size: =21
+            Width: =336
+            X: =276
+            Y: =607
+            ZIndex: =18
+
+        DataCardKey6_5 As label:
+            Color: =RGBA(210,42,35,1)
+            FontWeight: =FontWeight.Semibold
+            Height: =39
+            Size: =21
+            Text: |-
+                ="Encaminhamento:"
+            Width: =269
+            Wrap: =false
+            X: =28
+            Y: =716
+            ZIndex: =19
+
+        ComboBox1_1 As combobox:
+            BorderColor: =RGBA(210,42,35,1)
+            ChevronBackground: =RGBA(210,42,35,1)
+            ChevronFill: =White
+            ChevronHoverBackground: =RGBA(210,42,35,1)
+            ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+            Color: =White
+            DisplayFields: =["Value"]
+            Fill: =RGBA(33, 30, 30 , 1)
+            Height: =70
+            HoverColor: =White
+            HoverFill: =RGBA(33, 30, 20 , 1)
+            InputTextPlaceholder: =
+            Items: =["Psicólogo","Fisioterapeuta", "Prep. Físico"]
+            SearchFields: =["Value"]
+            SearchItems: =Search(["Psicólogo","Fisioterapeuta", "Prep. Físico"],ComboBox1_1.SearchText,"Value")
+            Size: =21
+            Width: =294
+            X: =320
+            Y: =704
+            ZIndex: =20
+
+    NavBarGeral_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =38
+
+        ButtonNavBarGeral_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =White
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(DetalhesAtleta)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Geral"
+            Width: =100
+            Y: =1066
+            ZIndex: =36
+
+        ButtonNavBarGeralUnderline_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =White
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(DetalhesAtleta)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonNavBarGeral_1.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =100
+            Y: =1066
+            ZIndex: =37
+
+    NavBarMedico_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =39
+
+        ButtonNavBarMedico_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(210, 42, 35, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarAtletas)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Médico"
+            Width: =117
+            X: =101
+            Y: =1066
+            ZIndex: =34
+
+        ButtonNavBarMedicoUnderline_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(210, 42, 35, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonNavBarMedico_1.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =117
+            X: =101
+            Y: =1065
+            ZIndex: =35
+
+    NavBarPsicologia_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =40
+
+        ButtonNavBarPsicologia_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(PsicologiaRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Psicologia"
+            Width: =156
+            X: =222
+            Y: =1066
+            ZIndex: =32
+
+        ButtonNavBarPsicologiaUnderline_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(PsicologiaRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonNavBarPsicologia_1.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =156
+            X: =222
+            Y: =1065
+            ZIndex: =33
+
+    NavBarFisioterapia_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =41
+
+        ButtonNavBarFisioterapia_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(FisioterapiaRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Fisioterapia"
+            Width: =169
+            X: =378
+            Y: =1066
+            ZIndex: =29
+
+        ButtonNavBarFisioterapiaUnderline_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(FisioterapiaRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonNavBarFisioterapia_1.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =169
+            X: =378
+            Y: =1064
+            ZIndex: =31
+
+    NavBarFisico_1 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =42
+
+        ButtonNavBarFisico_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(FisicoRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Físico"
+            Width: =95
+            X: =545
+            Y: =1066
+            ZIndex: =28
+
+        ButtonNavBarFisicoUnderline_1 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(FisicoRotina)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonNavBarFisico_1.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =95
+            X: =545
+            Y: =1081
+            ZIndex: =30
+

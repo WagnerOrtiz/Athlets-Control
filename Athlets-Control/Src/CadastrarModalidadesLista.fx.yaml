@@ -1,0 +1,373 @@
+CadastrarModalidadesLista As screen:
+    Fill: =RGBA(33, 30, 30, 1)
+    OnVisible: =Set(varCadastrarOuLista, AbaLista3_1.Text)
+
+    AbaLista3_1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Fill: =If(varCadastrarOuLista = AbaLista3_1.Text, RGBA(0,0,0,0), Black)
+        FontWeight: =Semibold
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(CadastrarModalidadesLista)
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Lista"
+        Width: =325
+        X: =315
+        Y: =152
+        ZIndex: =11
+
+    AbaCadastrar3_1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =White
+        Fill: =
+        FontWeight: =Normal
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(CadastrarModalidades)
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =5
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Cadastrar"
+        Width: =321
+        X: =1
+        Y: =152
+        ZIndex: =12
+
+    Group6 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =20
+
+        TextSearchBox1_3 As text:
+            Align: =Left
+            BorderColor: =RGBA(241, 244, 249, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Default: =""
+            DelayOutput: =true
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =68
+            HintText: ="Search items"
+            HoverBorderColor: =RGBA(255, 255, 255, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            PaddingLeft: =80
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =7
+            RadiusTopLeft: =0
+            RadiusTopRight: =7
+            Size: =21
+            Width: =608
+            X: =32
+            Y: =242
+            ZIndex: =9
+
+        SearchIcon1_3 As icon.Search:
+            Color: =RGBA(191, 190, 190, 1)
+            Height: =Self.Width
+            Icon: =Icon.Search
+            PaddingBottom: =14
+            PaddingLeft: =14
+            PaddingRight: =14
+            PaddingTop: =14
+            Tooltip: ="Search"
+            Width: =TextSearchBox1_3.Height
+            X: =51
+            Y: =244
+            ZIndex: =10
+
+        Rectangle11_3 As rectangle:
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =1
+            Width: =640
+            Y: =320
+            ZIndex: =13
+
+    HeaderCadastrarUsuario_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        RectQuickActionBar1_17 As rectangle:
+            Fill: =RGBA(210, 35, 42, 1)
+            Height: =150
+            Width: =Parent.Width
+            ZIndex: =14
+
+        LblAppName1_7 As label:
+            Align: =Align.Center
+            Color: =RGBA(33, 30, 30, 1)
+            Fill: =RGBA(58, 58, 58, 0)
+            FontWeight: =FontWeight.Bold
+            Height: =150
+            Size: =28
+            Text: ="MODALIDADES"
+            Width: =313
+            Wrap: =false
+            X: =200
+            Y: =4
+            ZIndex: =15
+
+        Image1_8 As image:
+            Height: =135
+            Image: =simbolo
+            Width: =135
+            X: =60
+            Y: =9
+            ZIndex: =16
+
+        IconRefresh1_6 As icon.Reload:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(33, 30, 30, 1)
+            Height: =84
+            Icon: =Icon.Reload
+            OnSelect: =Refresh('[Flamengo] - Modalidades')
+            PaddingBottom: =22
+            PaddingLeft: =22
+            PaddingRight: =22
+            PaddingTop: =22
+            TabIndex: =0
+            Tooltip: ="Refresh list"
+            Width: =84
+            X: =513
+            Y: =38
+            ZIndex: =17
+
+        IconSortUpDown1_4 As icon.ArrowsUpDown:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(33, 30, 30, 1)
+            Height: =88
+            Icon: =Icon.Sort
+            OnSelect: |-
+                =UpdateContext({SortDescending1: !SortDescending1})
+            PaddingBottom: =26
+            PaddingLeft: =26
+            PaddingRight: =26
+            PaddingTop: =26
+            TabIndex: =0
+            Tooltip: =If(SortDescending1, "Sort list in reverse alphabetical order", "Sort list in alphabetical order")
+            Width: =88
+            X: =552
+            Y: =34
+            ZIndex: =18
+
+    NavBarUsuarios_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =27
+
+        ButtonUsuarios_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =White
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Usuários"
+            Width: =130
+            Y: =1065
+            ZIndex: =25
+
+        ButtonUsuariosUnderline_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonUsuarios_5.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =130
+            Y: =1064
+            ZIndex: =26
+
+    NavBarModalidades_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        ButtonModalidades_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(210, 42, 35, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarModalidades)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Modalidades"
+            Width: =178
+            X: =260
+            Y: =1065
+            ZIndex: =21
+
+        ButtonModalidadesUnderline_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(210, 42, 35, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonModalidades_5.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =178
+            X: =260
+            Y: =1064
+            ZIndex: =22
+
+    NavBarAtletas_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =29
+
+        ButtonAtletas_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =White
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarAtletas)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Atletas"
+            Width: =135
+            X: =129
+            Y: =1065
+            ZIndex: =23
+
+        ButtonAtletasUnderline_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =White
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonAtletas_5.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =135
+            X: =129
+            Y: =1064
+            ZIndex: =24
+
+    NavBarDepartamentos_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =30
+
+        ButtonDepartamentos_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarDepartamentos)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Departamentos"
+            Width: =202
+            X: =438
+            Y: =1066
+            ZIndex: =19
+
+        ButtonDepartamentosUnderline_5 As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonDepartamentos_5.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =201
+            X: =438
+            Y: =1064
+            ZIndex: =20
+

@@ -1,0 +1,78 @@
+Home As screen:
+    Fill: =RGBA(33, 30, 30, 1)
+
+    Image1_3 As image:
+        Height: =324
+        Image: =simbolo
+        Width: =324
+        X: =161
+        Y: =170
+        ZIndex: =1
+
+    EmailInput As text:
+        BorderColor: =RGBA(210,42,35,1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: ="Email"
+        HoverBorderColor: =
+        HoverColor: |-
+            =
+            White
+        HoverFill: =RGBA(0, 0, 0, 0)
+        PressedColor: =White
+        Size: =21
+        Width: =Home.Width-150
+        X: =78
+        Y: =549
+        ZIndex: =2
+
+    Button1 As button:
+        Color: =WhiteSmoke
+        Fill: =RGBA(210,42,35,1)
+        Height: =70
+        HoverBorderColor: =RGBA(210,42,35,1)
+        HoverColor: =White
+        HoverFill: =RGBA(210,42,25,1)
+        OnSelect: |
+            =If(
+                PasswordInput.Text = LookUp('[Flamengo] - Users', Email = EmailInput.Text, Senha), 
+                If(
+                    LookUp('[Flamengo] - Users', Email = EmailInput.Text, Permissão) = "Admin",
+                    Navigate(EscolherRota),
+                    Navigate(GaleriaAtletas, ScreenTransition.Cover)
+                ),
+                Notify("Usuário ou senha inválido",NotificationType.Warning)
+            )
+        PressedColor: =White
+        PressedFill: =RGBA(210,42,25,1)
+        Size: =24
+        Text: ="Entrar"
+        Width: =280
+        X: =193
+        Y: =839
+        ZIndex: =3
+
+    PasswordInput As text:
+        BorderColor: =RGBA(210,42,35,1)
+        Color: =RGBA(255, 255, 255, 1)
+        Default: =""
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =70
+        HintText: ="Password"
+        HoverBorderColor: =
+        HoverColor: |-
+            =
+            White
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Mode: =TextMode.Password
+        PressedColor: =White
+        Size: =21
+        Width: =Home.Width-150
+        X: =78
+        Y: =645
+        ZIndex: =4
+

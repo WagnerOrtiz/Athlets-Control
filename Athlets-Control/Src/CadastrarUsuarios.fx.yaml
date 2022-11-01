@@ -1,0 +1,793 @@
+CadastrarUsuarios As screen:
+    Fill: =RGBA(33, 30, 30, 1)
+    OnVisible: =NewForm(Form2)
+
+    AbaLista As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =White
+        Fill: =Black
+        FontWeight: =Normal
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(CadastrarUsuariosLista)
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =5
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Lista"
+        Width: =325
+        X: =315
+        Y: =153
+        ZIndex: =5
+
+    AbaCadastrar As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =0
+        Color: =White
+        Fill: =RGBA(0,0,0,0)
+        FontWeight: =Semibold
+        Height: =68
+        HoverFill: =Self.Fill
+        OnSelect: =Navigate(CadastrarUsuarios)
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =5
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =24
+        Text: ="Cadastrar"
+        Width: =321
+        X: =1
+        Y: =153
+        ZIndex: =6
+
+    Form2 As form:
+        DataSource: ='[Flamengo] - Users'
+        Height: =613
+        Width: =640
+        Y: =285
+        ZIndex: =7
+
+        Usuario_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Usuario"
+            Default: =ThisItem.Usuario
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo('[Flamengo] - Users',DataSourceInfo.DisplayName,"Usuario")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =127
+            MaxLength: =DataSourceInfo('[Flamengo] - Users', DataSourceInfo.MaxLength, "Usuario")
+            Required: =false
+            Update: =DataCardValue2.Text
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =16
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage5_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible5_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+            DataCardValue2 As text:
+                BorderColor: =RGBA(210,42,35,1)
+                Color: =RGBA(255, 255, 255, 1)
+                Default: =Parent.Default
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                HintText: =""
+                HoverBorderColor: =
+                HoverColor: |-
+                    =
+                    White
+                HoverFill: =RGBA(0, 0, 0, 0)
+                PressedColor: =White
+                Size: =21
+                Width: =556
+                X: =40
+                Y: =64
+                ZIndex: =5
+
+        Email_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Email"
+            Default: =ThisItem.Email
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'[Flamengo] - Users'],DataSourceInfo.DisplayName,"Email")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =118
+            MaxLength: =DataSourceInfo('[Flamengo] - Users', DataSourceInfo.MaxLength, "Email")
+            Required: =false
+            Update: =DataCardValue5_1.Text
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =16
+
+            DataCardKey5_1 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage8 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5_1.Y + DataCardValue5_1.Height
+                ZIndex: =3
+
+            StarVisible8 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5_1.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5_1.Y
+                ZIndex: =4
+
+            DataCardValue5_1 As text:
+                BorderColor: =RGBA(210,42,35,1)
+                Color: =RGBA(255, 255, 255, 1)
+                Default: =Parent.Default
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                HintText: =""
+                HoverBorderColor: =
+                HoverColor: |-
+                    =
+                    White
+                HoverFill: =RGBA(0, 0, 0, 0)
+                PressedColor: =White
+                Size: =21
+                Width: =556
+                X: =40
+                Y: =64
+                ZIndex: =5
+
+        Departamento_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Departamento"
+            Default: =ThisItem.Departamento
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo('[Flamengo] - Users',DataSourceInfo.DisplayName,"Departamento")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =93
+            MaxLength: =DataSourceInfo('[Flamengo] - Users', DataSourceInfo.MaxLength, "Departamento")
+            Required: =false
+            Update: =DataCardValue3.Selected.Value
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =16
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage6 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible6 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+            DataCardValue3 As dropdown:
+                AllowEmptySelection: =true    
+                BorderColor: =RGBA(210,42,35,1)
+                ChevronBackground: =RGBA(210,42,35,1)
+                ChevronFill: =White
+                ChevronHoverBackground: =RGBA(210,42,35,1)
+                ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(33, 30, 30 , 1)
+                Height: =70
+                HoverColor: =White
+                HoverFill: =RGBA(33, 30, 20 , 1)
+                Items: =["Médico","Psicológico","Fisioterapia","Preparação Física", "Admin"]
+                PressedColor: =White
+                PressedFill: =Self.ChevronFill
+                SelectionFill: =RGBA(0, 0, 0, 0)
+                Size: =21
+                Width: =315
+                X: =40
+                Y: =68
+                ZIndex: =5
+
+        Funcao_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Funcao"
+            Default: =ThisItem.Funcao
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo('[Flamengo] - Users',DataSourceInfo.DisplayName,"Funcao")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =88
+            MaxLength: =DataSourceInfo('[Flamengo] - Users', DataSourceInfo.MaxLength, "Funcao")
+            Required: =false
+            Update: =DataCardValue4.Selected.Value
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =16
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage7 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible7 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+
+            DataCardValue4 As dropdown:
+                AllowEmptySelection: =true    
+                BorderColor: =RGBA(210,42,35,1)
+                ChevronBackground: =RGBA(210,42,35,1)
+                ChevronFill: =White
+                ChevronHoverBackground: =RGBA(210,42,35,1)
+                ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(33, 30, 30 , 1)
+                Height: =70
+                HoverColor: =White
+                HoverFill: =RGBA(33, 30, 20 , 1)
+                Items: =["Médico","Psicológico","Fisioterapia","Preparação Física", "Admin"]
+                PressedColor: =White
+                PressedFill: =Self.ChevronFill
+                SelectionFill: =RGBA(0, 0, 0, 0)
+                Size: =21
+                Width: =315
+                X: =40
+                Y: =68
+                ZIndex: =5
+
+        Permissão_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Permiss_x00e3_o"
+            Default: =ThisItem.Permissão
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo('[Flamengo] - Users',DataSourceInfo.DisplayName,"Permiss_x00e3_o")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =142
+            MaxLength: =DataSourceInfo('[Flamengo] - Users', DataSourceInfo.MaxLength, "Permiss_x00e3_o")
+            Required: =false
+            Update: =DataCardValue10.Selected.Value
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =16
+
+            DataCardKey10 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage10 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue10.Y + DataCardValue10.Height
+                ZIndex: =3
+
+            StarVisible10 As label:
+                Align: =Align.Center
+                Height: =DataCardKey10.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey10.Y
+                ZIndex: =4
+
+            DataCardValue10 As dropdown:
+                AllowEmptySelection: =true    
+                BorderColor: =RGBA(210,42,35,1)
+                ChevronBackground: =RGBA(210,42,35,1)
+                ChevronFill: =White
+                ChevronHoverBackground: =RGBA(210,42,35,1)
+                ChevronHoverFill: =RGBA(33, 30, 20 , 1)
+                Color: =RGBA(255, 255, 255, 1)
+                Fill: =RGBA(33, 30, 30 , 1)
+                Height: =70
+                HoverColor: =White
+                HoverFill: =RGBA(33, 30, 20 , 1)
+                Items: =["Médico","Psicológico","Fisioterapia","Preparação Física", "Admin"]
+                PressedColor: =White
+                PressedFill: =Self.ChevronFill
+                SelectionFill: =RGBA(0, 0, 0, 0)
+                Size: =21
+                Width: =315
+                X: =41
+                Y: =66
+                ZIndex: =5
+
+        Anexos_DataCard1_1 As typedDataCard.attachmentsEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.Attachments
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo('[Flamengo] - Users',DataSourceInfo.DisplayName,"{Attachments}")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue11.Attachments
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =16
+
+            DataCardKey11 As label:
+                AutoHeight: =true
+                Color: =RGBA(210, 42, 35, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            ErrorMessage11 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue11.Y + DataCardValue11.Height
+                ZIndex: =3
+
+            StarVisible11 As label:
+                Align: =Align.Center
+                Height: =DataCardKey11.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey11.Y
+                ZIndex: =4
+
+            DataCardValue11 As attachments:
+                BorderColor: =RGBA(210, 42, 35, 1)
+                Color: =White
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =173
+                IsInDataCard: =true
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =544
+                X: =40
+                Y: =60
+                ZIndex: =5
+
+    Button1_5 As button:
+        Color: =WhiteSmoke
+        Fill: =RGBA(210,42,35,1)
+        Height: =44
+        HoverBorderColor: =RGBA(210,42,35,1)
+        HoverColor: =White
+        HoverFill: =RGBA(210,42,25,1)
+        OnSelect: |
+            =If(
+                PasswordInput.Text = LookUp('[Flamengo] - Users', Email = EmailInput.Text, Senha), 
+                Navigate(GaleriaAtletas, ScreenTransition.Cover),
+                Notify("Usuário ou senha inválido",NotificationType.Warning)
+            )
+        PressedColor: =White
+        PressedFill: =RGBA(210,42,25,1)
+        Size: =18
+        Text: ="Enviar"
+        Width: =114
+        X: =478
+        Y: =951
+        ZIndex: =8
+
+    HeaderCadastrarUsuario As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        RectQuickActionBar1_3 As rectangle:
+            Fill: =RGBA(210, 35, 42, 1)
+            Height: =150
+            Width: =Parent.Width
+            Y: =1
+            ZIndex: =1
+
+        LblAppName1_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(33, 30, 30, 1)
+            Fill: =RGBA(58, 58, 58, 0)
+            FontWeight: =FontWeight.Bold
+            Height: =150
+            Size: =28
+            Text: |-
+                ="CADASTRAR 
+                USUÁRIOS"
+            Width: =393
+            Wrap: =false
+            X: =155
+            Y: =3
+            ZIndex: =2
+
+        Image1_1 As image:
+            Height: =135
+            Image: =simbolo
+            Width: =135
+            X: =20
+            Y: =10
+            ZIndex: =3
+
+        IconRefresh1_1 As icon.Reload:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(33, 30, 30, 1)
+            Height: =84
+            Icon: =Icon.Reload
+            OnSelect: =Refresh('[Flamengo] - Atletas')
+            PaddingBottom: =22
+            PaddingLeft: =22
+            PaddingRight: =22
+            PaddingTop: =22
+            TabIndex: =0
+            Tooltip: ="Refresh list"
+            Width: =84
+            X: =533
+            Y: =39
+            ZIndex: =4
+
+    NavBarUsuarios As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        ButtonUsuarios As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(210, 42, 35, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Usuários"
+            Width: =130
+            Y: =1065
+            ZIndex: =15
+
+        ButtonUsuariosUnderline As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonUsuarios.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =130
+            Y: =1064
+            ZIndex: =16
+
+    NavBarModalidades As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =26
+
+        ButtonModalidades As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarModalidades)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Modalidades"
+            Width: =178
+            X: =260
+            Y: =1065
+            ZIndex: =11
+
+        ButtonModalidadesUnderline As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonModalidades.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =178
+            X: =260
+            Y: =1064
+            ZIndex: =12
+
+    NavBarAtletas As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =27
+
+        ButtonAtletas As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarAtletas)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Atletas"
+            Width: =135
+            X: =129
+            Y: =1065
+            ZIndex: =13
+
+        ButtonAtletasUnderline As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonAtletas.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =135
+            X: =129
+            Y: =1064
+            ZIndex: =14
+
+    NavBarDepartamentos As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        ButtonDepartamentos As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =70
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarDepartamentos)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            Size: =18
+            Text: ="Departamentos"
+            Width: =202
+            X: =438
+            Y: =1066
+            ZIndex: =9
+
+        ButtonDepartamentosUnderline As button:
+            BorderColor: =
+            BorderStyle: =BorderStyle.None
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(210, 42, 35, 1)
+            FontWeight: =If(Self.Color = RGBA(210, 42, 35, 1), Bold, Normal)
+            Height: =10
+            HoverColor: =RGBA(210, 42, 35, 1)
+            HoverFill: =
+            OnSelect: =Navigate(CadastrarUsuarios)
+            PressedColor: =RGBA(210, 42, 35, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =18
+            Text: =""
+            Visible: =If(ButtonDepartamentos.Color = RGBA(210, 42, 35, 1), true, false)
+            Width: =201
+            X: =438
+            Y: =1064
+            ZIndex: =10
+
